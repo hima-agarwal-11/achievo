@@ -1,74 +1,156 @@
-# Achivo 🚀
+# 🚀 Achievo – Smart To-Do List Application
 
-Achivo is a modern, premium-quality glassmorphic To-Do list web application designed for seamless daily productivity. Built with clean, semantic markup and smooth micro-interactions, Achivo delivers a desktop-grade dashboard experience without the overhead of external frameworks.
+Achievo is a modern and responsive **To-Do List web application** built using **HTML5, CSS3, and Vanilla JavaScript**. It helps users organize daily tasks efficiently with a clean interface, interactive features, and persistent local storage.
 
-![Achivo Mockup](https://raw.githubusercontent.com/username/achivo/main/assets/images/preview.png) *(Placeholder for application screenshot)*
+> **Tagline:** *Plan Better. Achieve More.*
 
-## 🌟 Features
+---
 
-- **Glassmorphic UI Theme**: Sophisticated backdrop blurs, soft colors, and gradient borders that adapt to both Dark and Light modes.
-- **Dynamic Welcome & Live Clock**: Personalized greeting based on the hour of day coupled with a live clock tracking hours, minutes, and seconds.
-- **Task Analytics Dashboard**: Real-time stats counting Total, Pending, and Completed tasks, plus an interactive SVG circular progress indicator.
-- **Task Management**:
-  - Add tasks with low, medium, or high priorities.
-  - Interactive custom confirmation modals for deletion (no browser dialog defaults).
-  - Edit tasks directly using a dedicated premium form modal or double-clicking any task title.
-  - Smooth custom checkbox draw animations for marking tasks as complete.
-- **Search & Sliding Filters**: Filter dynamically by "All", "Active", or "Completed" using sliding indicator pills, or query titles using the search field.
-- **Storage Persistence**: Local Storage persistence keeps tasks safe across reloads.
-- **Custom Empty States**: Beautiful, responsive vector SVGs dynamically rendering states when no items match filters or search queries.
-- **Responsive Layout**: Designed mobile-first for accessibility across mobile, tablet, and wide desktop viewports.
+## 📖 Project Overview
+
+Achievo is designed to improve productivity by providing a simple yet powerful task management experience. Users can add, edit, delete, search, and organize their tasks with a modern interface that works seamlessly across desktop, tablet, and mobile devices.
+
+The application stores tasks locally in the browser, ensuring that all tasks remain available even after refreshing or reopening the application.
+
+---
+
+## ✨ Features
+
+- ✅ Add New Tasks
+- ✏️ Edit Existing Tasks
+- 🗑️ Delete Tasks
+- ✔️ Mark Tasks as Completed
+- 🔄 Undo Completed Tasks
+- 🔍 Search Tasks
+- 📂 Filter Tasks
+  - All
+  - Active
+  - Completed
+- 📊 Task Statistics
+  - Total Tasks
+  - Pending Tasks
+  - Completed Tasks
+- 🧹 Clear Completed Tasks
+- 💾 Local Storage Support
+- 🌙 Dark Mode / Light Mode Toggle
+- 📱 Fully Responsive Design
+- ⚡ Smooth Animations & Transitions
+- ⌨️ Press **Enter** to Add Tasks
+- 🎨 Modern Glassmorphism User Interface
+
+---
 
 ## 🛠️ Technologies Used
 
-- **HTML5**: Semantic tags for structures and accessibility.
-- **CSS3**: Custom variables, backdrop-filter blurs, keyframe animations, responsive flex/grid layouts.
-- **Vanilla JavaScript (ES6+)**: Custom DOM manipulation, local storage integration, interactive custom overlays, clock ticking intervals.
-- **SVG Graphics**: Inline vector assets scaling across screens and styling automatically with active color themes.
-
-## 📂 Folder Structure
-
-```
-achivo/
-├── index.html       # Application markup structure
-├── style.css        # Layout design, theme variables, and keyframe animations
-├── script.js        # Core DOM controllers, clock updates, and storage logic
-├── assets/          # Media and graphics resources
-│   ├── icons/       # Dedicated icon assets
-│   └── images/      # Mockups and application preview images
-└── README.md        # Project guide and overview documentation
-```
-
-## 🚀 Installation & Setup
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/username/achivo.git
-   ```
-
-2. **Navigate into the project folder**:
-   ```bash
-   cd achivo
-   ```
-
-3. **Open the application**:
-   - Simply double-click the `index.html` file to open it directly in your web browser.
-   - Alternatively, serve it locally with live reload extensions (e.g. VS Code Live Server).
-
-## 📸 Screenshots
-
-| Light Mode | Dark Mode |
-| :---: | :---: |
-| ![Light Mode Dashboard](https://raw.githubusercontent.com/username/achivo/main/assets/images/light-preview.png) | ![Dark Mode Dashboard](https://raw.githubusercontent.com/username/achivo/main/assets/images/dark-preview.png) |
+- HTML5
+- CSS3
+- Vanilla JavaScript (ES6)
+- DOM Manipulation
+- Local Storage API
+- Git
+- GitHub
+- Vercel
 
 ---
 
-## 🔗 Links
+## 📂 Project Structure
 
-- **GitHub Repository**: [GitHub Link Placeholder](https://github.com/username/achivo)
-- **Live Demo URL**: [Live Demo Placeholder](https://username.github.io/achivo)
+```text
+achievo/
+│
+├── index.html
+├── style.css
+├── script.js
+├── README.md
+│
+└── assets/
+    ├── images/
+    └── icons/
+```
 
 ---
 
-### Created by [Hima Agarwal](https://github.com/username)
-Achivo &copy; 2026
+## 🚀 Live Demo
+
+🌐 **Live Website**
+
+https://achievo-nu.vercel.app
+
+---
+
+## 💻 GitHub Repository
+
+https://github.com/hima-agarwal-11/achievo
+
+---
+
+## ⚙️ How to Run the Project
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/hima-agarwal-11/achievo.git
+```
+
+2. Open the project folder.
+
+3. Launch `index.html` in your browser.
+
+No additional installation or dependencies are required.
+
+---
+
+## 🎯 Learning Outcomes
+
+Through this project, I learned:
+
+- DOM Manipulation using JavaScript
+- Event Handling
+- Local Storage Implementation
+- Responsive Web Design
+- CSS Flexbox & Grid
+- UI/UX Design Principles
+- Git & GitHub Version Control
+- Deploying applications using Vercel
+- Building interactive web applications using Vanilla JavaScript
+
+---
+
+## 🔮 Future Enhancements
+
+- 📅 Due Dates
+- ⭐ Task Priorities
+- 🏷️ Categories & Labels
+- 🔔 Notifications & Reminders
+- 📈 Productivity Analytics
+- ☁️ Cloud Synchronization
+- 👤 User Authentication
+
+---
+
+## 📄 License
+
+This project is developed for educational and internship purposes.
+
+---
+
+## 👩‍💻 Author
+
+**Hima Agarwal**
+
+B.Tech Computer Science and Engineering  
+VIT Bhopal University
+
+📧 Email: agarwalhima6@gmail.com
+
+🔗 GitHub: https://github.com/hima-agarwal-11
+
+---
+
+## ⭐ Support
+
+If you found this project helpful, consider giving it a **⭐ Star** on GitHub.
+
+---
+
+**Achievo © 2026 | Plan Better. Achieve More.**
