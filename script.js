@@ -1,5 +1,5 @@
 /**
- * Achivo - Premium To-Do List Application
+ * Achievo - Premium To-Do List Application
  * Created by Hima Agarwal
  * © 2026
  */
