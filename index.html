@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Achivo - Premium Productivity To-Do List</title>
+  <meta name="description" content="Manage your tasks with elegance using Achivo, a glassmorphic productivity application.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Loading Splash Screen -->
+  <div id="loader-screen">
+    <div class="loader-logo-container">
+      <div class="loader-logo">Achivo</div>
+      <div class="loader-bar">
+        <div class="loader-progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ambient Blurred Background Blobs -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <!-- Main App Layout -->
+  <div class="app-container">
+    <main class="dashboard-panel">
+      
+      <!-- Top Header Widget -->
+      <header>
+        <div class="header-left">
+          <div class="logo-wrapper">
+            <svg class="logo-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+            </svg>
+            <h1 class="logo-text">Achivo</h1>
+          </div>
+          <span class="welcome-msg" id="welcome-msg">Good morning, Productive Day Ahead!</span>
+        </div>
+        
+        <div class="header-right">
+          <!-- Clock Widget -->
+          <div class="clock-widget">
+            <svg class="clock-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span id="live-clock">Thursday, July 2, 2026 • 03:15 PM</span>
+          </div>
+          
+          <!-- Theme Toggle Button -->
+          <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle dark mode">
+            <!-- Sun Icon (shown in dark theme) -->
+            <svg class="sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+            </svg>
+            <!-- Moon Icon (shown in light theme) -->
+            <svg class="moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Stats Dashboard Section -->
+      <section class="stats-section" aria-label="Task Statistics">
+        <div class="stats-card">
+          <div class="stats-icon-box total">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+            </svg>
+          </div>
+          <div class="stats-info">
+            <span class="stats-label">Total Tasks</span>
+            <span class="stats-number" id="count-total">0</span>
+          </div>
+        </div>
+
+        <div class="stats-card">
+          <div class="stats-icon-box pending">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <div class="stats-info">
+            <span class="stats-label">Pending</span>
+            <span class="stats-number" id="count-pending">0</span>
+          </div>
+        </div>
+
+        <div class="stats-card">
+          <div class="stats-icon-box completed">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+          <div class="stats-info">
+            <span class="stats-label">Completed</span>
+            <span class="stats-number" id="count-completed">0</span>
+          </div>
+        </div>
+
+        <!-- Completion Progress Circle Card -->
+        <div class="stats-card progress-card">
+          <div class="progress-info">
+            <span class="progress-title">Completion</span>
+            <span class="progress-desc" id="progress-desc">0% of tasks done</span>
+          </div>
+          <div class="progress-circle-container">
+            <svg width="65" height="65">
+              <defs>
+                <linearGradient id="progress-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#6366F1" />
+                  <stop offset="100%" stop-color="#8B5CF6" />
+                </linearGradient>
+              </defs>
+              <circle class="progress-circle-bg" cx="32.5" cy="32.5" r="28" />
+              <circle class="progress-circle-bar" id="progress-circle" cx="32.5" cy="32.5" r="28" />
+            </svg>
+            <span class="progress-percentage" id="progress-percent">0%</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Control Center Section -->
+      <section class="controls-section">
+        
+        <!-- Inline Add Task Bar -->
+        <form class="quick-add-container" id="quick-add-form">
+          <div class="quick-add-input-wrapper">
+            <svg class="input-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"></path>
+            </svg>
+            <input type="text" class="quick-add-input" id="quick-add-input" placeholder="Plan a new task..." required autocomplete="off">
+          </div>
+          <select class="priority-select" id="quick-add-priority" aria-label="Task priority">
+            <option value="low">Low Priority</option>
+            <option value="medium" selected>Medium Priority</option>
+            <option value="high">High Priority</option>
+          </select>
+          <button type="submit" class="btn-primary">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"></path>
+            </svg>
+            Add Task
+          </button>
+        </form>
+
+        <!-- Search, Filter & Utility Row -->
+        <div class="filter-search-container">
+          
+          <!-- Dynamic Task Search -->
+          <div class="search-input-wrapper">
+            <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+            <input type="text" class="search-input" id="search-tasks" placeholder="Search tasks..." autocomplete="off">
+          </div>
+
+          <!-- Sliding Category Filters -->
+          <div class="filters-wrapper" id="filters-container">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+            <div class="filter-pill-slider" id="filter-slider"></div>
+          </div>
+
+          <!-- Clean Completed Utilities -->
+          <button class="btn-clear" id="clear-completed-btn">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+            </svg>
+            Clear Completed
+          </button>
+        </div>
+
+      </section>
+
+      <!-- Task List Container -->
+      <section class="task-list-section" id="task-list-section">
+        <!-- Task cards injected here dynamically via JS -->
+      </section>
+
+      <!-- Empty State Illustration -->
+      <div class="empty-state" id="empty-state-view" style="display: none;">
+        <svg viewBox="0 0 200 200" class="empty-state-svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="svg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#6366F1" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0.85"/>
+            </linearGradient>
+            <linearGradient id="svg-grad-light" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#a5b4fc" stop-opacity="0.2"/>
+              <stop offset="100%" stop-color="#c084fc" stop-opacity="0.2"/>
+            </linearGradient>
+          </defs>
+          <circle cx="100" cy="100" r="75" fill="url(#svg-grad-light)" />
+          <rect x="70" y="55" width="60" height="80" rx="8" fill="var(--input-bg)" stroke="url(#svg-grad)" stroke-width="2.5" />
+          <path d="M88 55 V50 H112 V55 Z" fill="url(#svg-grad)" />
+          <rect x="92" y="47" width="16" height="5" rx="1.5" fill="url(#svg-grad)" />
+          <line x1="82" y1="78" x2="118" y2="78" stroke="var(--text-secondary)" stroke-width="2.5" stroke-linecap="round" opacity="0.35" />
+          <line x1="82" y1="92" x2="110" y2="92" stroke="var(--text-secondary)" stroke-width="2.5" stroke-linecap="round" opacity="0.35" />
+          <line x1="82" y1="106" x2="114" y2="106" stroke="var(--text-secondary)" stroke-width="2.5" stroke-linecap="round" opacity="0.35" />
+          <circle cx="132" cy="128" r="18" fill="url(#svg-grad)" />
+          <path d="M125 128 L130 133 L139 122" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <h3 class="empty-state-title" id="empty-state-title">Your schedule is clean</h3>
+        <p class="empty-state-desc" id="empty-state-desc">No tasks found. Click the button below or use the quick bar above to add a new task.</p>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Floating Add Task Action Button (FAB) -->
+  <button class="floating-add-btn" id="fab-btn" aria-label="Add new task">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"></path>
+    </svg>
+  </button>
+
+  <!-- Modal overlay: Add Task & Edit Task Form -->
+  <div class="modal-overlay" id="task-modal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modal-title-text">Add New Task</h2>
+        <button class="modal-close-btn" id="modal-close-btn" aria-label="Close modal">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="task-form">
+          <input type="hidden" id="task-id-field">
+          <div class="form-group">
+            <label for="task-title-input">Task Title</label>
+            <input type="text" class="modal-input" id="task-title-input" placeholder="What needs to be done?" required autocomplete="off">
+          </div>
+          <div class="form-group" style="margin-top: 1rem;">
+            <label for="task-priority-input">Priority</label>
+            <select class="modal-select" id="task-priority-input">
+              <option value="low">Low Priority</option>
+              <option value="medium" selected>Medium Priority</option>
+              <option value="high">High Priority</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" id="modal-cancel-btn">Cancel</button>
+        <button type="submit" form="task-form" class="btn-primary" id="modal-submit-btn">Save Task</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Custom Delete Confirmation Modal -->
+  <div class="modal-overlay" id="delete-modal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 class="modal-title" style="color: var(--danger-color);">Delete Task?</h2>
+        <button class="modal-close-btn" id="delete-modal-close" aria-label="Close modal">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="confirm-message" id="confirm-delete-msg">Are you sure you want to delete this task? This action cannot be undone.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" id="delete-cancel-btn">Cancel</button>
+        <button class="btn-danger" id="delete-confirm-btn">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Credits -->
+  <footer>
+    <span class="footer-name">Created by Hima Agarwal</span>
+    <span class="footer-copyright">Achivo &copy; 2026</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
